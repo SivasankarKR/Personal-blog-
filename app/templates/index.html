@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Blog</title>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="{% static 'css/1.css' %}" type="text/css" media="screen,projection" />
+</head>
+<body>
+	<div class="container">
+    <div id="header">
+	<h1>Welcome To The Blog</h1>
+	<p>Create Your Blog</p>
+	<a href="/create/" class="btn btn-primary">Create Now</a>
+	<ul>
+	</hr>
+	</br>
+	<p>Recent Created Posts..!</p>
+	{% for post in posts %}
+		<li>
+		<a href="/detail/{{post.id}}"> {{post.title}} </a><br/>
+		{{ post.body }}
+		</li>
+	{% endfor %}
+	</ul>
+	</div>
+  <div id="footer">
+    <p>
+&copy; 2023 created  </p>
+  </div>
+</div>
+</body>
+</html>
+{% endblock %}
